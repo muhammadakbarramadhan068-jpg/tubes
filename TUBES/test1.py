@@ -5,6 +5,10 @@ import folium
 from streamlit_folium import folium_static
 from bs4 import BeautifulSoup
 import time
+import os
+
+base_path = os.path.dirname(__file__)
+file_path = os.path.join(base_path, 'data_banjir_jawa_barat.csv')
 
 # Judul aplikasi
 st.title("Dashboard Analisis Banjir Jawa Barat")
@@ -13,7 +17,7 @@ st.write("---")
 
 # Baca data CSV
 try:
-    data = pd.read_csv('data_banjir_jawa_barat.csv')
+    data = pd.read_csv('file_path')
     data['date'] = pd.to_datetime(data['date'])
     
     # Sidebar filter
@@ -223,4 +227,5 @@ except FileNotFoundError:
     st.error("File data_banjir_jawa_barat.csv tidak ditemukan!")
     st.write("Pastikan file CSV ada di folder yang sama")
 except Exception as e:
+
     st.error(f"Error: {e}")
