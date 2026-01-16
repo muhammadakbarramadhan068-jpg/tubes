@@ -17,7 +17,7 @@ st.write("---")
 
 # Baca data CSV
 try:
-    data = pd.read_csv('file_path')
+    data = pd.read_csv(file_path)
     data['date'] = pd.to_datetime(data['date'])
     
     # Sidebar filter
@@ -229,3 +229,4 @@ except FileNotFoundError:
 except Exception as e:
 
     st.error(f"Error: {e}")
+
